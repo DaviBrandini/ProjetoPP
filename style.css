@@ -171,3 +171,80 @@ footer {
     width: 100%;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #4CAF50;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente escondida fora da tela */
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 8px 8px 0;
+    transition: left 0.3s ease; /* Animação suave para abrir/fechar */
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, padding-left 0.3s;
+    border-radius: 4px;
+}
+
+.sidebar a:hover {
+    background-color: #45a049;
+    padding-left: 35px;
+}
+
+/* Botão para abrir/fechar a sidebar */
+.open-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Alinhado à esquerda da tela */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+    z-index: 1100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease; /* Faz o botão se mover junto com a sidebar */
+}
+
+.open-btn:hover {
+    background-color: #45a049;
+}
+
+/* Ajuste no conteúdo principal */
+header, #map, #info, form, #messages, #tourist-spots, footer {
+    margin-left: 0; /* Remove a margem adicional */
+    transition: margin-left 0.3s ease;
+}
+
+/* Quando a sidebar estiver aberta */
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar.open ~ .open-btn {
+    left: 250px; /* Move o botão junto com a sidebar */
+}
+
+.sidebar.open + header, 
+.sidebar.open + #map, 
+.sidebar.open + #info, 
+.sidebar.open + form, 
+.sidebar.open + #messages, 
+.sidebar.open + #tourist-spots, 
+.sidebar.open + footer {
+    margin-left: 250px; /* Ajuste a margem quando a sidebar está aberta */
+}

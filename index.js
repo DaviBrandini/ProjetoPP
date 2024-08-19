@@ -77,3 +77,7 @@ document.getElementById('handleSubmit').addEventListener('click', function(event
     document.getElementById('messages').innerText = `Endereço enviado: ${address}`;
 });
 
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open'); // Alterna a classe 'open' na sidebar
+}
